@@ -1,0 +1,22 @@
+{
+  "name": "event-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "keywords": [
+    "schedule",
+    "scheduling",
+    "event",
+    "fire",
+    "trigger",
+    "queue"
+  ],
+  "author": "Michael Terpak",
+  "license": "MIT",
+  "dependencies": {
+    "mkdirp": "^0.5.1"
+  }
+}
