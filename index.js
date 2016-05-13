@@ -4,6 +4,7 @@ const Server = require('./lib/server')
 const fs = require('fs')
 const path = require('path')
 const mkdirp = require('mkdirp')
+const db = require('./lib/db')
 
 /**
  * CLI Args:
@@ -86,5 +87,12 @@ function loadConfig(_path) {
 }
 
 function start(options) {
-    new Server(options).start()
+    // Initialize connection to db
+    db
+        .init()
+        .then(() => server.start())
+        .catch(err => {
+            console.error('Error initializing server')
+            console.error(err)
+        })
 }
