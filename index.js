@@ -1,6 +1,6 @@
 'use strict'
 
-const Server = require('./server')
+const Server = require('./lib/server')
 const fs = require('fs')
 const path = require('path')
 const mkdirp = require('mkdirp')
