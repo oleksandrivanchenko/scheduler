@@ -5,7 +5,6 @@ const MongoClient = require('mongodb').MongoClient
 const fs = require('fs')
 const path = require('path')
 const mkdirp = require('mkdirp')
-const db = require('./lib/db')
 
 /**
  * CLI Args:
@@ -90,6 +89,7 @@ function loadConfig(_path) {
 function start(options) {
     MongoClient.connect('mongodb://localhost:27017/testdb', (err, db) => {
         if (err) throw err
-	    new Server(options).start()
+	options.db = db
+	new Server(options).start()
     })
 }
