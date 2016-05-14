@@ -87,6 +87,7 @@ function loadConfig(_path) {
 }
 
 function start(options) {
+	let server = new Server(options)
     // Initialize connection to db
     db
         .init()
