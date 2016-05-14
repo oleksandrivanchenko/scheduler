@@ -1,6 +1,7 @@
 'use strict'
 
 const Server = require('./lib/server')
+const MongoClient = require('mongodb').MongoClient
 const fs = require('fs')
 const path = require('path')
 const mkdirp = require('mkdirp')
@@ -87,13 +88,8 @@ function loadConfig(_path) {
 }
 
 function start(options) {
-	let server = new Server(options)
-    // Initialize connection to db
-    db
-        .init()
-        .then(() => server.start())
-        .catch(err => {
-            console.error('Error initializing server')
-            console.error(err)
-        })
+    MongoClient.connect('mongodb://localhost:27017/testdb', (err, db) => {
+        if (err) throw err
+	    new Server(options).start()
+    })
 }
