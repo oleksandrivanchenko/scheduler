@@ -1,6 +1,6 @@
 'use strict'
 
-const db = require('./lib/db')()
+const db = require('./lib/db')
 const fs = require('fs')
 const path = require('path')
 const mkdirp = require('mkdirp')
@@ -86,7 +86,8 @@ function loadConfig(_path) {
 }
 
 function start(options) {
-    db.init(() => {
-	    new require('./lib/server')(options).start()
+    db.init(options, () => {
+        const Server = require('./lib/server')
+	    new Server(options).start()
     })
 }
