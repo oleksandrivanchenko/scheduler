@@ -1,5 +1,5 @@
 {
-    "port": 3000,
+    "port": 5955,
     "interval": 60,
     "verbose": true,
     "upsert": false
