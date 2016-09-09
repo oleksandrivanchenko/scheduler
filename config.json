@@ -2,5 +2,6 @@
     "port": 5665,
     "interval": 60,
     "verbose": true,
-    "upsert": false
+    "upsert": false,
+    "redis": null
 }
