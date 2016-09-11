@@ -82,9 +82,23 @@ function loadConfig(_path) {
     fs.readFile(_path || CONFIG_FILENAME, (err, data) => {
         if (err) throw err
         let config = JSON.parse(data)
-        Object.assign(Settings, config)
+        assignSettings(Settings, config)
         start(config)
     })
+
+    function assignSettings(obj_to, obj_from) {
+        for (let i in obj_to) {
+            if (typeof obj_to[i] === 'object') {
+                if (typeof obj_from[i] === 'object') {
+                    assignSettings(obj_to[i], obj_from[i])
+                    delete obj_from[i]
+                } else if (obj_from[i] == null) {
+                    delete obj_from[i]
+                }
+            }
+        }
+        Object.assign(obj_to, obj_from)
+    }
 }
 
 function start() {
