@@ -3,5 +3,10 @@
     "interval": 60,
     "verbose": true,
     "upsert": false,
-    "redis": null
+    "redis": {
+
+    },
+    "mongo": {
+
+    }
 }
