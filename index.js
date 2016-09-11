@@ -4,7 +4,7 @@ const db = require('./lib/db')
 const fs = require('fs')
 const path = require('path')
 const mkdirp = require('mkdirp')
-const Settings = require('./settings')
+const Settings = require('./lib/settings')
 
 /**
  * CLI Args:
