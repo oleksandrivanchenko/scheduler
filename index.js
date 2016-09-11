@@ -4,6 +4,7 @@ const db = require('./lib/db')
 const fs = require('fs')
 const path = require('path')
 const mkdirp = require('mkdirp')
+const Settings = require('./settings')
 
 /**
  * CLI Args:
@@ -81,13 +82,14 @@ function loadConfig(_path) {
     fs.readFile(_path || CONFIG_FILENAME, (err, data) => {
         if (err) throw err
         let config = JSON.parse(data)
+        Object.assign(Settings, config)
         start(config)
     })
 }
 
-function start(options) {
-    db.init(options, () => {
-        const Server = require('./lib/server')
-	    new Server(options).start()
+function start() {
+    db.init().then(() => {
+        // TODO should this be required at the top?
+	    require('./lib/server')().start()
     })
 }
