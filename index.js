@@ -90,6 +90,7 @@ function loadConfig(_path) {
 function start() {
     db.init().then(() => {
         // TODO should this be required at the top?
-	    require('./lib/server')().start()
+        const Server = require('./lib/server')
+	    new Server().start()
     })
 }
