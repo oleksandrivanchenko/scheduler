@@ -4,9 +4,9 @@
     "verbose": true,
     "upsert": false,
     "redis": {
-
+        "host": "ec2-52-205-251-130.compute-1.amazonaws.com"
     },
     "mongo": {
-
+        "host": "ec2-52-205-251-130.compute-1.amazonaws.com"
     }
 }
