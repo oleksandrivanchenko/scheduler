@@ -3,6 +3,7 @@
     "interval": 60,
     "verbose": true,
     "upsert": false,
+    "workers": 5,
     "redis": {
         "host": "ec2-52-205-251-130.compute-1.amazonaws.com"
     },
