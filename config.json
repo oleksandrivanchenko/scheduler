@@ -9,5 +9,9 @@
     },
     "mongo": {
         "host": "ec2-52-205-251-130.compute-1.amazonaws.com"
+    },
+    "papertrail": {
+        "host": "logs4.papertrailapp.com",
+        "port": 23574
     }
 }
