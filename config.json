@@ -5,13 +5,13 @@
     "upsert": false,
     "workers": 5,
     "redis": {
-        "host": "ec2-52-205-251-130.compute-1.amazonaws.com"
+        "host": ""
     },
     "mongo": {
-        "host": "ec2-52-205-251-130.compute-1.amazonaws.com"
+        "host": ""
     },
     "papertrail": {
-        "host": "logs4.papertrailapp.com",
+        "host": "",
         "port": 23574
     }
 }
