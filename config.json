@@ -5,13 +5,19 @@
     "upsert": false,
     "workers": 5,
     "redis": {
-        "host": ""
+        "host": "<redis_host>",
+        "port": "<redis_port>"
     },
     "mongo": {
-        "host": ""
+      "host": "<mongo_host>",
+      "port": "<mongo_port>",
+      "db_name": "<mongo_db>",
+      "collection_name": "<mongo_collection>",
+      "username": "<mongo_username>",
+      "password": "<mongo_password>"
     },
     "papertrail": {
-        "host": "",
-        "port": 23574
+      "host": "logs4.papertrailapp.com",
+      "port": 23574
     }
 }
