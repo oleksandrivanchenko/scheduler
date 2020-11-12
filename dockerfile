@@ -1,11 +1,12 @@
 # Dynamic Trigger Scheduler
 
-FROM ubuntu
-MAINTAINER Michael Terpak
-RUN apt-get update
-RUN apt-get install -y apt-utils wget
-RUN echo 'deb http://www.rabbitmq.com/debian/ testing main' | tee /etc/apt/sources.list.d/rabbitmq.list
-RUN wget -O- https://www.rabbitmq.com/rabbitmq-release-signing-key.asc | apt-key add -
-RUN apt-get update
-RUN apt-get install -y rabbitmq-server
-RUN apt-get install -yf
+FROM node:11.8.0
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
+COPY package.json /usr/src/app/
+RUN npm install
+COPY . /usr/src/app
+ADD https://raw.githubusercontent.com/vishnubob/wait-for-it/master/wait-for-it.sh /
+RUN chmod +x /wait-for-it.sh
+CMD ["/wait-for-it.sh", "mongo-app:27017", "--", "npm", "start", "--", "-c", "config.json"]
+EXPOSE 5665

@@ -1,17 +1,23 @@
 {
-    "port": 5665,
-    "interval": 60,
-    "verbose": true,
-    "upsert": false,
-    "workers": 5,
-    "redis": {
-        "host": ""
-    },
-    "mongo": {
-        "host": ""
-    },
-    "papertrail": {
-        "host": "",
-        "port": 23574
-    }
+  "port": 5665,
+  "interval": 60,
+  "verbose": true,
+  "upsert": false,
+  "workers": 5,
+  "redis": {
+    "host": "redis-app",
+    "port": 6379
+  },
+  "mongo": {
+    "host": "mongo-app",
+    "port": 27017,
+    "db_name": "eventdb",
+    "collection_name": "events",
+    "username": "scheduler-user",
+    "password": "^csL4&"
+  },
+  "papertrail": {
+    "host": "logs4.papertrailapp.com",
+    "port": 23574
+  }
 }
