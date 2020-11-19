@@ -8,5 +8,5 @@ RUN npm install
 COPY . /usr/src/app
 ADD https://raw.githubusercontent.com/vishnubob/wait-for-it/master/wait-for-it.sh /
 RUN chmod +x /wait-for-it.sh
-CMD ["/wait-for-it.sh", "mongo-app:27017", "--", "npm", "start", "--", "-c", "config.json"]
+CMD ["/wait-for-it.sh", "mongo-app:27017", "--", "npm", "start"]
 EXPOSE 5665
